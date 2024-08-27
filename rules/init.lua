@@ -51,9 +51,45 @@ ruled.client.connect_signal("request::rules", function()
 		properties = { titlebars_enabled = true },
 	})
 
-	-- Set Firefox to always map on the tag named '2' on screen 1.
-	-- ruled.client.append_rule {
-	--    rule       = {class = 'Firefox'},
-	--    properties = {screen = 1, tag = '2'}
-	-- }
+	-- Order matters for following
+	ruled.client.append_rule({
+		rule = { class = "org.wezfurlong.wezterm" },
+		properties = { tag = "1", switchtotag = true },
+	})
+	ruled.client.append_rule({
+		rule = { class = "Firefox" },
+		properties = { tag = "2" },
+	})
+	ruled.client.append_rule({
+		rule = { class = "Brave-browser" },
+		properties = { tag = "2" },
+	})
+	ruled.client.append_rule({
+		rule = { class = "neovide" },
+		properties = { tag = "4", switchtotag = true },
+	})
+	ruled.client.append_rule({
+		rule = { class = "obs" },
+		properties = { tag = "6", switchtotag = true },
+	})
+	ruled.client.append_rule({
+		rule = { class = "obsidian" },
+		properties = { tag = "5", switchtotag = true },
+	})
+	ruled.client.append_rule({
+		rule = { class = "Spotify" },
+		properties = { tag = "7" },
+	})
+	ruled.client.append_rule({
+		rule = { class = "zoom" },
+		properties = { tag = "8" },
+	})
+	ruled.client.append_rule({
+		rule = { class = "Slack" },
+		properties = { tag = "9" },
+	})
+	ruled.client.append_rule({
+		rule = { class = "TelegramDesktop" },
+		properties = { tag = "9" },
+	})
 end)

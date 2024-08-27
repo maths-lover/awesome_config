@@ -431,7 +431,10 @@ awful.keyboard.append_global_keybindings({
 		end,
 	}),
 
+	-- {{{
 	-- Application related bindings
+	--
+	-- Browser
 	awful.key({
 		modifiers = { mod.super },
 		key = "b",
@@ -441,6 +444,8 @@ awful.keyboard.append_global_keybindings({
 			awful.spawn("firefox --ProfileManager")
 		end,
 	}),
+
+	-- Communication apps
 	awful.key({
 		modifiers = { mod.super },
 		key = "c",
@@ -450,4 +455,16 @@ awful.keyboard.append_global_keybindings({
 			widgets.menu.chatmenu:show()
 		end,
 	}),
+
+	-- Screenshot
+	awful.key({
+		modifiers = { mod.super, mod.shift },
+		key = "s",
+		description = "Take a screenshot",
+		group = "Multimedia",
+		on_press = function()
+			awful.spawn("flameshot gui")
+		end,
+	}),
+	-- }}}
 })
