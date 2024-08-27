@@ -3,9 +3,6 @@
 -- load luarocks if installed
 pcall(require, "luarocks.loader")
 
--- Error handling
-require("errors")
-
 -- load theme
 local beautiful = require("beautiful")
 local gears = require("gears")
