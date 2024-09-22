@@ -3,10 +3,10 @@ local naughty = require("naughty")
 -- {{{ Error handling
 -- handle errors during startup
 naughty.connect_signal("request::display_error", function(message, startup)
-	naughty.notification({
-		urgency = "critical",
+	naughty.notify({
+		preset = naughty.config.presets.critical,
 		title = "Oops, and error happened" .. (startup and " during startup!" or "!"),
-		message = message,
+		text = message,
 	})
 end)
 

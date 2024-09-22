@@ -152,6 +152,15 @@ awful.keyboard.append_global_keybindings({
 	}),
 	awful.key({
 		modifiers = { mod.super, mod.ctrl },
+		key = "k",
+		description = "focus the previous screen",
+		group = "screen",
+		on_press = function()
+			awful.screen.focus_relative(-1)
+		end,
+	}),
+	awful.key({
+		modifiers = { mod.super, mod.ctrl },
 		key = "n",
 		description = "restore minimized",
 		group = "client",
@@ -466,5 +475,17 @@ awful.keyboard.append_global_keybindings({
 			awful.spawn("flameshot gui")
 		end,
 	}),
+
+	-- clipboard manager
+	awful.key({
+		modifiers = { mod.super, mod.shift },
+		key = "v",
+		description = "Toggles copyq clipboard manager",
+		group = "Apps",
+		on_press = function()
+			awful.spawn("copyq toggle")
+		end,
+	}),
+
 	-- }}}
 })

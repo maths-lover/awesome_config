@@ -17,12 +17,15 @@ return function(s)
 		textclock = wibox.widget.textclock(),
 	}
 
+	-- set systray to be in vertical only
+	s.widgets.systray:set_horizontal(true)
+
 	s.widgets.wibar = awful.wibar({
 		screen = s,
 		position = "top",
 		widget = {
 			layout = wibox.layout.align.horizontal,
-			-- left widgets
+			-- top widgets
 			{
 				layout = wibox.layout.fixed.horizontal,
 				menu.launcher,
@@ -31,7 +34,7 @@ return function(s)
 			},
 			-- middle widgets
 			s.widgets.tasklist,
-			-- right widgets
+			-- bottom widgets
 			{
 				layout = wibox.layout.fixed.horizontal,
 				s.widgets.keyboardlayout,

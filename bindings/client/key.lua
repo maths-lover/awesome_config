@@ -99,5 +99,14 @@ client.connect_signal("request::default_keybindings", function()
 				c:raise()
 			end,
 		}),
+		awful.key({
+			modifiers = { mod.super, mod.shift },
+			key = "y",
+			description = "bring floating window into center of the screen",
+			group = "client",
+			on_press = function(c)
+				awful.placement.centered(c)
+			end,
+		}),
 	})
 end)
