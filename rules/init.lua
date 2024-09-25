@@ -11,6 +11,8 @@ ruled.client.connect_signal("request::rules", function()
 			raise = true,
 			screen = awful.screen.preferred,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			maximized_vertical = false,
+			maximized_horizontal = false,
 		},
 	})
 
@@ -43,13 +45,22 @@ ruled.client.connect_signal("request::rules", function()
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
-		properties = { floating = true },
+		properties = {
+			floating = true,
+		},
 	})
 
-	-- Add titlebars to normal clients and dialogs
+	-- Remove titlebars from normal clients but add to dialogs
 	ruled.client.append_rule({
 		id = "titlebars",
-		rule_any = { type = { "normal", "dialog" } },
+		rule_any = { type = { "normal" } },
+		properties = {
+			titlebars_enabled = false,
+		},
+	})
+	ruled.client.append_rule({
+		id = "titlebars",
+		rule_any = { type = { "dialog" } },
 		properties = { titlebars_enabled = true },
 	})
 

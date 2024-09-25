@@ -108,5 +108,14 @@ client.connect_signal("request::default_keybindings", function()
 				awful.placement.centered(c)
 			end,
 		}),
+		awful.key({
+			modifiers = { mod.super, mod.shift },
+			key = "t",
+			description = "Toggle titlebar visibility",
+			group = "client",
+			on_press = function(c)
+				awful.titlebar.toggle(c)
+			end,
+		}),
 	})
 end)

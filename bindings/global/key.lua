@@ -439,6 +439,24 @@ awful.keyboard.append_global_keybindings({
 			awful.spawn("pavucontrol")
 		end,
 	}),
+	awful.key({
+		modifiers = {},
+		key = "XF86MonBrightnessUp",
+		description = "Increases brightness by 1%",
+		group = "Display",
+		on_press = function()
+			awful.spawn("sudo light -A 1")
+		end,
+	}),
+	awful.key({
+		modifiers = {},
+		key = "XF86MonBrightnessDown",
+		description = "Decrease brightness by 1%",
+		group = "Display",
+		on_press = function()
+			awful.spawn("sudo light -U 1")
+		end,
+	}),
 
 	-- {{{
 	-- Application related bindings
@@ -486,6 +504,5 @@ awful.keyboard.append_global_keybindings({
 			awful.spawn("copyq toggle")
 		end,
 	}),
-
 	-- }}}
 })

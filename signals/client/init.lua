@@ -6,6 +6,15 @@ client.connect_signal("mouse::enter", function(c)
 	c:activate({ context = "mouse_enter", raise = false })
 end)
 
+-- show titlebars for floating windows but make them disappear if tiled or maximized
+client.connect_signal("property::floating", function(c)
+	if c.floating then
+		awful.titlebar.show(c)
+	else
+		awful.titlebar.hide(c)
+	end
+end)
+
 client.connect_signal("request::titlebars", function(c)
 	-- buttons for the titlebar
 	local buttons = {

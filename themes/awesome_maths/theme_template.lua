@@ -111,14 +111,28 @@ theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/
 rnotification.connect_signal("request::rules", function()
 	rnotification.append_rule({
 		rule = { urgency = "critical" },
-		properties = { bg = "{{colors.error.default.hex}}", fg = "{{colors.on_error.default.hex}}" },
-	}, {
-		rule = { urgency = "normal" },
-		properties = { bg = "{{colors.primary.default.hex}}", fg = "{{colors.on_primary.default.hex}}" },
-	}, {
-		rule = { urgency = "low" },
-		properties = { bg = "{{colors.tertiary_fixed.default.hex}}", fg = "{{colors.on_tertiary_fixed.default.hex}}" },
+		properties = { bg = "#ff0000", fg = "#ffffff" },
 	})
+	rnotification.append_rule({
+		rule = { urgency = "normal" },
+		properties = { bg = "#0000ff", fg = "#ffffff" },
+	})
+	rnotification.append_rule({
+		rule = { urgency = "low" },
+		properties = { bg = "#00ff00", fg = "#ffffff" },
+	})
+	-- rnotification.append_rule({
+	-- 	rule = { urgency = "critical" },
+	-- 	properties = { bg = "{{colors.error.default.hex}}", fg = "{{colors.on_error.default.hex}}" },
+	-- })
+	-- rnotification.append_rule({
+	-- 	rule = { urgency = "normal" },
+	-- 	properties = { bg = "{{colors.primary.default.hex}}", fg = "{{colors.on_primary.default.hex}}" },
+	-- })
+	-- rnotification.append_rule({
+	-- 	rule = { urgency = "low" },
+	-- 	properties = { bg = "{{colors.tertiary_fixed.default.hex}}", fg = "{{colors.on_tertiary_fixed.default.hex}}" },
+	-- })
 end)
 
 return theme

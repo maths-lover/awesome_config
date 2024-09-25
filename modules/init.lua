@@ -1,6 +1,0 @@
--- local _M = {}
---
--- -- Finds the coordinates of the center of the screen with some offset
--- _M.screen_center = function(offset_x, offset_y) end
---
--- return _M

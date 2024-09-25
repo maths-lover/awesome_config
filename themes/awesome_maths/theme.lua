@@ -28,22 +28,22 @@ local themes_path = awesome_theme_dir
 local theme = {}
 theme.font = "Roboto 10"
 
-theme.bg_focus = "#bece80"
-theme.bg_normal = "#c4caa8"
-theme.bg_urgent = "#3f4c0a"
-theme.bg_minimize = "#a1d0c5"
+theme.bg_focus = "#abc7ff"
+theme.bg_normal = "#bec6dc"
+theme.bg_urgent = "#284677"
+theme.bg_minimize = "#ddbce0"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_focus = "#2a3400"
-theme.fg_normal = "#191d08"
-theme.fg_urgent = "#daeb99"
-theme.fg_minimize = "#043730"
+theme.fg_focus = "#0c305f"
+theme.fg_normal = "#131c2b"
+theme.fg_urgent = "#d7e2ff"
+theme.fg_minimize = "#3f2844"
 
 theme.useless_gap = dpi(3)
 theme.border_width = dpi(2)
-theme.border_color_normal = "#c4caa8"
-theme.border_color_active = "#bece80"
-theme.border_color_marked = "#daeb99"
+theme.border_color_normal = "#bec6dc"
+theme.border_color_active = "#abc7ff"
+theme.border_color_marked = "#d7e2ff"
 
 -- IMAGES
 theme.layout_fairh = themes_path .. "awesome_maths/layouts/fairh.png"
@@ -114,10 +114,10 @@ rnotification.connect_signal("request::rules", function()
 		properties = { bg = "#ffb4ab", fg = "#690005" },
 	}, {
 		rule = { urgency = "normal" },
-		properties = { bg = "#bece80", fg = "#2a3400" },
+		properties = { bg = "#abc7ff", fg = "#0c305f" },
 	}, {
 		rule = { urgency = "low" },
-		properties = { bg = "#bdece0", fg = "#00201b" },
+		properties = { bg = "#fad8fd", fg = "#29132e" },
 	})
 end)
 
