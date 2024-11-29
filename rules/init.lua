@@ -106,21 +106,21 @@ ruled.client.connect_signal("request::rules", function()
 		},
 	})
 	ruled.client.append_rule({
-		rule = { class = "obsidian" },
-		properties = {
-			screen = awful.screen.preferred,
-			tag = function(c)
-				return awful.screen.preferred(c).tags[5]
-			end,
-			switchtotag = true,
-		},
-	})
-	ruled.client.append_rule({
 		rule = { class = "obs" },
 		properties = {
 			screen = awful.screen.preferred,
 			tag = function(c)
 				return awful.screen.preferred(c).tags[6]
+			end,
+			switchtotag = true,
+		},
+	})
+	ruled.client.append_rule({
+		rule = { class = "obsidian" },
+		properties = {
+			screen = awful.screen.preferred,
+			tag = function(c)
+				return awful.screen.preferred(c).tags[5]
 			end,
 			switchtotag = true,
 		},

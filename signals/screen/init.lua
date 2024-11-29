@@ -1,9 +1,15 @@
 local awful = require("awful")
+local wibox = require("wibox")
 local beautiful = require("beautiful")
 local gears = require("gears")
 
 local vars = require("config.vars")
 local widgets = require("widgets")
+
+awful.screen.connect_for_each_screen(function(s)
+	s.systray = wibox.widget.systray()
+	s.systray.visible = false
+end)
 
 local function set_wallpaper(s)
 	-- Wallpaper

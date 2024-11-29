@@ -82,6 +82,18 @@ awful.keyboard.append_global_keybindings({
 			menubar.show()
 		end,
 	}),
+	awful.key({
+		modifiers = { mod.super },
+		key = "=",
+		description = "toggle systray visibility",
+		group = "custom",
+		on_press = function()
+			-- toggle visibility
+			awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+			-- toggle the screen which it should be visible on
+			awful.screen.focused().systray:set_screen(awful.screen.focused())
+		end,
+	}),
 })
 
 -- tags related keybindings
@@ -294,7 +306,7 @@ awful.keyboard.append_global_keybindings({
 			local screen = awful.screen.focused()
 			local tag = screen.tags[index]
 			if tag then
-				tag:viewtoggle(tag)
+				awful.tag.viewtoggle(tag)
 			end
 		end,
 	}),
@@ -361,7 +373,7 @@ awful.keyboard.append_global_keybindings({
 	awful.key({
 		modifiers = {},
 		key = "XF86AudioMute",
-		description = "Decrease volume by 5%",
+		description = "Mute audio output",
 		group = "Multimedia",
 		on_press = function()
 			awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
@@ -370,7 +382,7 @@ awful.keyboard.append_global_keybindings({
 	awful.key({
 		modifiers = {},
 		key = "XF86AudioMicMute",
-		description = "Decrease volume by 5%",
+		description = "Mute the mic input",
 		group = "Multimedia",
 		on_press = function()
 			awful.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle")
@@ -445,7 +457,7 @@ awful.keyboard.append_global_keybindings({
 		description = "Increases brightness by 1%",
 		group = "Display",
 		on_press = function()
-			awful.spawn("sudo light -A 1")
+			awful.spawn("brightnessctl s 1%+")
 		end,
 	}),
 	awful.key({
@@ -454,7 +466,7 @@ awful.keyboard.append_global_keybindings({
 		description = "Decrease brightness by 1%",
 		group = "Display",
 		on_press = function()
-			awful.spawn("sudo light -U 1")
+			awful.spawn("brightnessctl s 1%-")
 		end,
 	}),
 

@@ -32,6 +32,7 @@ _M.launcher = awful.widget.launcher({
 })
 
 _M.chatmenu = awful.menu({
+	theme = { width = 120 },
 	items = {
 		{
 			"Telegram",
@@ -43,6 +44,12 @@ _M.chatmenu = awful.menu({
 			"Slack",
 			function()
 				awful.spawn("slack &")
+			end,
+		},
+		{
+			"Thunderbird",
+			function()
+				awful.spawn("thunderbird &")
 			end,
 		},
 		{

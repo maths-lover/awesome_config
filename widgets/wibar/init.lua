@@ -13,7 +13,7 @@ return function(s)
 		tasklist = tasklist(s),
 		keyboardlayout = awful.widget.keyboardlayout(),
 		promptbox = awful.widget.prompt(),
-		systray = wibox.widget.systray(),
+		systray = s.systray,
 		textclock = wibox.widget.textclock(),
 	}
 

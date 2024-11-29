@@ -3,11 +3,19 @@
 -- load luarocks if installed
 pcall(require, "luarocks.loader")
 
--- load theme
+local awful = require("awful")
 local beautiful = require("beautiful")
-local awesome_theme_dir = require("config.vars").awesome_theme_dir
 
-beautiful.init(awesome_theme_dir .. "awesome_maths/theme.lua")
+require("config.errorhandling")
+
+-- {{{ On Startup or Restart of awesome execute following programs/scripts
+awesome.connect_signal("startup", function(args)
+	awful.util.spawn_with_shell("~/.config/awesome/config/autorun.sh")
+end)
+-- }}}
+
+-- load theme
+beautiful.init(awful.util.getdir("config") .. "themes/" .. require("config").vars.current_theme .. "/theme.lua")
 
 -- set last set wallpaper using feh
 -- using external wallpaper setter so that I can utilize matugen dynamic colors based on wallpaper

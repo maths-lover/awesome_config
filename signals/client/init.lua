@@ -1,19 +1,28 @@
 local awful = require("awful")
 require("awful.autofocus")
 local wibox = require("wibox")
+local gears = require("gears")
 
 client.connect_signal("mouse::enter", function(c)
 	c:activate({ context = "mouse_enter", raise = false })
 end)
 
--- show titlebars for floating windows but make them disappear if tiled or maximized
+-- show titlebars for floating windows but make them disappear if tiled or maximized {{{
 client.connect_signal("property::floating", function(c)
-	if c.floating then
+	if c.floating and not c.maximized then
 		awful.titlebar.show(c)
 	else
 		awful.titlebar.hide(c)
 	end
 end)
+
+client.connect_signal("property::fullscreen", function(c)
+	if c.fullscreen then
+		awful.titlebar.hide(c)
+		c.shape = gears.shape.rectangle
+	end
+end)
+-- }}}
 
 client.connect_signal("request::titlebars", function(c)
 	-- buttons for the titlebar

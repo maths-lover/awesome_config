@@ -26,24 +26,24 @@ local themes_path = awesome_theme_dir
 
 -- BASICS
 local theme = {}
-theme.font = "Roboto 10"
+theme.font = "RobotoMono Nerd Font Propo 10"
 
-theme.bg_focus = "#abc7ff"
-theme.bg_normal = "#bec6dc"
-theme.bg_urgent = "#284677"
-theme.bg_minimize = "#ddbce0"
+theme.bg_focus = "#465d91"
+theme.bg_normal = "#bfc6dc"
+theme.bg_urgent = "#d9e2ff"
+theme.bg_minimize = "#725572"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_focus = "#0c305f"
-theme.fg_normal = "#131c2b"
-theme.fg_urgent = "#d7e2ff"
-theme.fg_minimize = "#3f2844"
+theme.fg_focus = "#ffffff"
+theme.fg_normal = "#141b2c"
+theme.fg_urgent = "#001944"
+theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(3)
 theme.border_width = dpi(2)
-theme.border_color_normal = "#bec6dc"
-theme.border_color_active = "#abc7ff"
-theme.border_color_marked = "#d7e2ff"
+theme.border_color_normal = "#575e71"
+theme.border_color_active = "#465d91"
+theme.border_color_marked = "#001944"
 
 -- IMAGES
 theme.layout_fairh = themes_path .. "awesome_maths/layouts/fairh.png"
@@ -109,15 +109,29 @@ theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal("request::rules", function()
+	-- rnotification.append_rule({
+	-- 	rule = { urgency = "critical" },
+	-- 	properties = { bg = "#ff0000", fg = "#ffffff" },
+	-- })
+	-- rnotification.append_rule({
+	-- 	rule = { urgency = "normal" },
+	-- 	properties = { bg = "#0000ff", fg = "#ffffff" },
+	-- })
+	-- rnotification.append_rule({
+	-- 	rule = { urgency = "low" },
+	-- 	properties = { bg = "#00ff00", fg = "#ffffff" },
+	-- })
 	rnotification.append_rule({
 		rule = { urgency = "critical" },
-		properties = { bg = "#ffb4ab", fg = "#690005" },
-	}, {
+		properties = { bg = "#ba1a1a", fg = "#ffffff" },
+	})
+	rnotification.append_rule({
 		rule = { urgency = "normal" },
-		properties = { bg = "#abc7ff", fg = "#0c305f" },
-	}, {
+		properties = { bg = "#465d91", fg = "#ffffff" },
+	})
+	rnotification.append_rule({
 		rule = { urgency = "low" },
-		properties = { bg = "#fad8fd", fg = "#29132e" },
+		properties = { bg = "#fdd7fb", fg = "#2a132c" },
 	})
 end)
 
