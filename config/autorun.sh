@@ -10,6 +10,9 @@ function run {
 # graphical polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# set cursor
+xsetroot -cursor_name left_ptr
+
 # compositor
 run picom -b
 
@@ -25,3 +28,6 @@ xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Tapping Enabled" 1 &
 
 # autolocking desktop using betterlockscreen (from AUR)
 xautolock -time 10 -locker "betterlockscreen -l blur" -detectsleep &
+
+# set preferred layout for external monitors
+~/.screenlayout/preferred.sh &

@@ -5,6 +5,7 @@ local menu = require("widgets.menu")
 local taglist = require("widgets.wibar.taglist")
 local tasklist = require("widgets.wibar.tasklist")
 local layoutbox = require("widgets.wibar.layoutbox")
+local battery = require("widgets.wibar.battery")
 
 return function(s)
 	s.widgets = {
@@ -15,6 +16,9 @@ return function(s)
 		promptbox = awful.widget.prompt(),
 		systray = s.systray,
 		textclock = wibox.widget.textclock(),
+
+		-- TODO: Update battery widget
+		battery = battery,
 	}
 
 	-- set systray to be in vertical only
@@ -37,8 +41,8 @@ return function(s)
 			-- bottom widgets
 			{
 				layout = wibox.layout.fixed.horizontal,
-				s.widgets.keyboardlayout,
 				s.widgets.systray,
+				s.widgets.keyboardlayout,
 				s.widgets.textclock,
 				s.widgets.layoutbox,
 			},
